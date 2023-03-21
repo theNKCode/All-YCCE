@@ -1,0 +1,379 @@
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'show databases' at line 2
+mysql> CREATE DATABASE employee;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.02 sec)
+
+mysql> CREATE DATABASE coffee_shop;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| coffee_shop        |
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> DROP DATABASE employee;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| coffee_shop        |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use datbases coffee_shop
+ERROR 1049 (42000): Unknown database 'datbases'
+mysql> use datbase coffee_shop
+ERROR 1049 (42000): Unknown database 'datbase'
+mysql> use datbase coffee_shop;
+ERROR 1049 (42000): Unknown database 'datbase'
+mysql> use database coffee_shop;
+ERROR 1049 (42000): Unknown database 'database'
+mysql> use databases coffee_shop;
+ERROR 1049 (42000): Unknown database 'databases'
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| coffee_shop        |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT DATABASE coffee_shop;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'coffee_shop' at line 1
+mysql> use DATABASE coffee_shop;
+ERROR 1049 (42000): Unknown database 'database'
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| coffee_shop        |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use coffee_shop;
+Database changed
+mysql> create table coffee_shop(employee_id int(20), name varchar(20), dob varchar(20), address varchar(20), phone_no int(10),hobbies varchar(20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table Employee(employee_id int(20),name varchar(20),dob varchar(20), address varchar(20), phone_no int(10),hobbies varchar(20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table Employee(employee_id int(20),name varchar(20),dob varchar(20), address varchar(20), phone_no int(10),hobbies varchar(20));
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+mysql> describe employee;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| employee_id | int         | YES  |     | NULL    |       |
+| name        | varchar(20) | YES  |     | NULL    |       |
+| dob         | varchar(20) | YES  |     | NULL    |       |
+| address     | varchar(20) | YES  |     | NULL    |       |
+| phone_no    | int         | YES  |     | NULL    |       |
+| hobbies     | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show tables;
++-----------------------+
+| Tables_in_coffee_shop |
++-----------------------+
+| employee              |
++-----------------------+
+1 row in set (0.01 sec)
+
+mysql> create table Customer(customer_id int(20),customer_name varchar(20),dob varchar(20), address varchar(20), phone_no int(10));
+Query OK, 0 rows affected, 2 warnings (0.03 sec)
+
+mysql> show tables;
++-----------------------+
+| Tables_in_coffee_shop |
++-----------------------+
+| customer              |
+| employee              |
++-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> create table Order_no(order_no int(20),order_prepared varchar(20),Time_taken varchar(20),items varchar(20),quantity int(10));
+Query OK, 0 rows affected, 2 warnings (0.03 sec)
+
+mysql> show tables;
++-----------------------+
+| Tables_in_coffee_shop |
++-----------------------+
+| customer              |
+| employee              |
+| order_no              |
++-----------------------+
+3 rows in set (0.00 sec)
+
+mysql> create table Bill(bill_no int(20),Description varchar(50),Total_amount int(20),date int(10));
+Query OK, 0 rows affected, 3 warnings (0.01 sec)
+
+mysql> show tables;
++-----------------------+
+| Tables_in_coffee_shop |
++-----------------------+
+| bill                  |
+| customer              |
+| employee              |
+| order_no              |
++-----------------------+
+4 rows in set (0.00 sec)
+
+mysql> show employee
+    -> show employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'employee
+show employee' at line 1
+mysql> describe employee;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| employee_id | int         | YES  |     | NULL    |       |
+| name        | varchar(20) | YES  |     | NULL    |       |
+| dob         | varchar(20) | YES  |     | NULL    |       |
+| address     | varchar(20) | YES  |     | NULL    |       |
+| phone_no    | int         | YES  |     | NULL    |       |
+| hobbies     | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee
+    -> select * from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from employee' at line 2
+mysql> select * from name;
+ERROR 1146 (42S02): Table 'coffee_shop.name' doesn't exist
+mysql> SELECT * FROM name;
+ERROR 1146 (42S02): Table 'coffee_shop.name' doesn't exist
+mysql> SELECT * BILL ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BILL' at line 1
+mysql> create database university;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| coffee_shop        |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| university         |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> describe coffee_shop;
+ERROR 1146 (42S02): Table 'coffee_shop.coffee_shop' doesn't exist
+mysql> show tables;
++-----------------------+
+| Tables_in_coffee_shop |
++-----------------------+
+| bill                  |
+| customer              |
+| employee              |
+| order_no              |
++-----------------------+
+4 rows in set (0.00 sec)
+
+mysql> describe employee;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| employee_id | int         | YES  |     | NULL    |       |
+| name        | varchar(20) | YES  |     | NULL    |       |
+| dob         | varchar(20) | YES  |     | NULL    |       |
+| address     | varchar(20) | YES  |     | NULL    |       |
+| phone_no    | int         | YES  |     | NULL    |       |
+| hobbies     | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from bill;
+Empty set (0.01 sec)
+
+mysql> select * from employee;
+Empty set (0.00 sec)
+
+mysql> ALTER TABLE order_no modify( time_taken varchar(30));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '( time_taken varchar(30))' at line 1
+mysql> describe order_no;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| order_no       | int         | YES  |     | NULL    |       |
+| order_prepared | varchar(20) | YES  |     | NULL    |       |
+| Time_taken     | varchar(20) | YES  |     | NULL    |       |
+| items          | varchar(20) | YES  |     | NULL    |       |
+| quantity       | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE order_no add( time_taken int );
+ERROR 1060 (42S21): Duplicate column name 'time_taken'
+mysql> ALTER TABLE order_no add( new int );
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe order_no;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| order_no       | int         | YES  |     | NULL    |       |
+| order_prepared | varchar(20) | YES  |     | NULL    |       |
+| Time_taken     | varchar(20) | YES  |     | NULL    |       |
+| items          | varchar(20) | YES  |     | NULL    |       |
+| quantity       | int         | YES  |     | NULL    |       |
+| new            | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> ALTER TABLE order_no modify time_taken int ;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe order_no;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| order_no       | int         | YES  |     | NULL    |       |
+| order_prepared | varchar(20) | YES  |     | NULL    |       |
+| time_taken     | int         | YES  |     | NULL    |       |
+| items          | varchar(20) | YES  |     | NULL    |       |
+| quantity       | int         | YES  |     | NULL    |       |
+| new            | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> ALTER TABLE order_no RENAME order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> ALTER TABLE order_no RENAME order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> ALTER TABLE order_no to order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to order' at line 1
+mysql> RENAME order_no TO order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order_no TO order' at line 1
+mysql> describe order_no;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| order_no       | int         | YES  |     | NULL    |       |
+| order_prepared | varchar(20) | YES  |     | NULL    |       |
+| time_taken     | int         | YES  |     | NULL    |       |
+| items          | varchar(20) | YES  |     | NULL    |       |
+| quantity       | int         | YES  |     | NULL    |       |
+| new            | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> RENAME TABLE order_no TO order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> ALTER TABLE rename column order_no to order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rename column order_no to order' at line 1
+mysql> ALTER TABLE order_no rename to order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> drop order_no column order_no;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order_no column order_no' at line 1
+mysql> alter table order_no drop column order-no;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order-no' at line 1
+mysql> alter table order_no drop column order_no;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe order_no;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| order_prepared | varchar(20) | YES  |     | NULL    |       |
+| time_taken     | int         | YES  |     | NULL    |       |
+| items          | varchar(20) | YES  |     | NULL    |       |
+| quantity       | int         | YES  |     | NULL    |       |
+| new            | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> rename table order_no to order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> alter table order_no rename to table_1;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> describe table_1;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| order_prepared | varchar(20) | YES  |     | NULL    |       |
+| time_taken     | int         | YES  |     | NULL    |       |
+| items          | varchar(20) | YES  |     | NULL    |       |
+| quantity       | int         | YES  |     | NULL    |       |
+| new            | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table order_no rename to order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> alter table table_1 rename to order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> alter table table_1 rename to order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> alter table table_1 rename to order_1;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> alter table order_1 rename to order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> alter table order_1 rename to order2;
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> alter table order_1 rename to orders;
+ERROR 1146 (42S02): Table 'coffee_shop.order_1' doesn't exist
+mysql> alter table order2 rename to orders;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql>
